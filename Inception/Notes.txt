@@ -1,0 +1,35 @@
+Q) What is Emmet?
+A)  Emmet is a set of plugins for text editors that significantly speeds up HTML and CSS coding by 
+    allowing users to write short abbreviations and expand them into full code blocks.
+
+Q) Difference between a Library and Framework?
+A) The main difference between a library and a framework is in the "inversion of control". With a library, 
+    you call the library's functions when you need them, putting you in control of the application flow. 
+    With a framework, the framework calls your code at specific points, inverting the control and dictating 
+    the application's structure and flow. 
+
+Q)What is CDN? Why do we use it?
+A) A Content Delivery Network (CDN) is a geographically distributed network of servers that work together 
+    to deliver web content, like images, videos, and web pages, to users quickly and reliably. CDNs achieve 
+    this by caching content on servers located closer to users, reducing the distance data needs 
+    to travel and minimizing latency. 
+
+Q) Why is React known as React?
+A) React is named "React" because of its core functionality: it reacts to changes in data by updating the user 
+    interface accordingly. The library is designed to efficiently update the display based on changes in the 
+    application's state or props. This reactivity is a key aspect of how React works, allowing for dynamic and 
+    responsive user interfaces. 
+
+Q) What is crossorigin in script tag?
+A) "crossorigin is used when loading scripts from a different origin, mainly to handle security checks properly."
+
+Q) What is diference between React and ReactDOM
+A) React is the core library for building UI components.
+   ReactDOM is used to render those components to the browser’s DOM.   
+
+Q) What is difference between react.development.js and react.production.js files via CDN?
+A) react.development.js includes extra warnings and error messages for debugging. Development build: Helpful during coding, slower, more verbose.
+   react.production.js is optimized for performance and is used in live apps. Production build: Smaller, faster, removes all dev-only checks.
+
+Q) What is async and defer?
+A) async runs the script as soon as it's downloaded, defer waits until HTML is fully parsed — and preserves order.
