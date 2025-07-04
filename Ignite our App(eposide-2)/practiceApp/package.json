@@ -1,0 +1,21 @@
+{
+  "name": "practiceapp",
+  "version": "1.0.0",
+  "description": "first react app",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "serve": "^14.2.4"
+  },
+  "browserslist" : [
+    "Last 2 versions"
+  ]
+}
