@@ -1,0 +1,33 @@
+Q) What is JSX?
+A) JSX (JavaScript XML) is a syntax extension for JavaScript used in React to describe what the user interface should look like.
+ It allows you to write HTML-like code within JavaScript, making the code more readable and easier to visualize. 
+ JSX is not HTML—it has differences like using className instead of class and requiring all tags to be closed. Under the hood, 
+ JSX is transformed into React.createElement() calls, which build the virtual DOM elements that React uses to render 
+ components efficiently.
+
+Q) Superpowers of JSX
+A) JSX combines the power of JavaScript with the readability of HTML, allowing developers to write UI components in a 
+highly expressive and intuitive way. It lets you embed dynamic JavaScript expressions using {} inside the markup, 
+making your UI reactive to data and logic. JSX supports component composition, so you can nest and reuse components 
+like regular functions. It’s also type-safe and compile-time checked, catching errors early. Plus, since it compiles 
+down to React.createElement, it gives you full access to the virtual DOM, enabling React’s efficient rendering and 
+updates—all while keeping your code clean, declarative, and maintainable.
+
+Q) Role of type attribute in script tag? What options can I use there?
+A) The type attribute in the <script> tag tells the browser what kind of script is being used. By default, if no type is 
+specified, the browser assumes text/javascript, which is standard JavaScript. One powerful option is type="module", 
+which enables the use of ES6 modules, allowing you to use import and export statements and ensuring strict mode automatically.
+Another common value is application/json, used to embed JSON data in a script block without executing it—this is useful
+for passing configuration or data. You might also see text/babel when working with JSX or modern JavaScript that needs to 
+be transpiled with Babel. Additionally, application/ld+json is used to include structured data (like schema.org) for
+SEO purposes. These options make the type attribute a flexible tool for controlling how different kinds of content 
+are handled inside script tags.
+
+Q) {TitleComponent} vs {<TitleComponent/>} vs
+{<TitleComponent></TitleComponent>} in JSX?
+A) In JSX, {TitleComponent} refers to the component function itself, not its rendered output—this is useful when you're 
+passing the component as a reference or prop, not rendering it. On the other hand, {<TitleComponent />} actually invokes 
+and renders the component; it tells React to run the function and display the returned JSX. {<TitleComponent></TitleComponent>}
+ does the same thing as the self-closing version, but it's written in a long-form style, allowing you to optionally pass 
+ children between the tags. All three look similar but serve different purposes based on whether you’re referencing, invoking,
+  or including children inside the component.

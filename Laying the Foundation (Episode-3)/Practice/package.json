@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "serve": "^14.2.4"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "name": "episode-3",
+  "version": "1.0.0",
+  "description": "third episode",
+  "scripts": {
+    "start" : "parcel index.html",
+    "build" : "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "kalyan",
+  "license": "ISC"
+}
