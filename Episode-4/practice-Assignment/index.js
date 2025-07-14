@@ -22,9 +22,9 @@ const Header = () => {
     );
 }
 
-const Card = ({ obj1 }) => {
-    const{name,cloudinaryImageId,costForTwo,cuisines,avgRating} = obj1;
-    const img1 = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId;
+const Card = ({ name, image, costForTwo, cuisines, avgRating }) => {
+    // const{name,cloudinaryImageId,costForTwo,cuisines,avgRating} = obj1;
+    const img1 = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+image;
     return (
         <div className= "card">
             <img src={img1}></img>
@@ -46,7 +46,7 @@ const Body = () => {
                 <input type="text" placeholder="Type for search "></input>
                 <div className="cardContainer">
                 {restaurants.map((val) => {
-                   return <Card key={val.info.id} obj1 = {val.info}/>
+                   return <Card key={val.name} {...val}/>
                 })}
                 </div>
                 

@@ -25,7 +25,7 @@ img{
     
 }
 .card{
-    padding:20px;
+    padding:30px;
     width:150px;
     height:250px;
     word-wrap: break-word;
@@ -33,4 +33,9 @@ img{
 }
 .card:hover{
     border: 1px solid black;
+}
+.cardContainer{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
 }
