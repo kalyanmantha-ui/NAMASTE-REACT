@@ -1,0 +1,77 @@
+Q) What is a Microservice?
+A) A Microservice is an architectural style where an application is broken down into small, independent services that each 
+handle a specific business function. These services communicate over lightweight protocols (typically HTTP/REST or 
+messaging queues) and can be developed, deployed, and scaled independently. This approach improves modularity, makes the
+system easier to maintain and test, and allows teams to work on different services simultaneously. It contrasts with monolithic 
+architecture, where all functionality is tightly integrated into a single codebase.
+
+Q) What is Monolith architecture?
+A) Monolith architecture is a traditional software design where all components of an application—UI, business logic, and 
+data access—are built and deployed as a single, unified codebase. All functions are tightly coupled and run in one process, 
+making development and deployment simple in the early stages. However, as the application grows, it becomes harder to maintain, 
+scale, and update, since any change requires rebuilding and redeploying the entire system. Monoliths can slow down development 
+in large teams due to tight interdependencies.
+
+Q) What is the difference between Monolith and Microservice?
+A) The key difference between Monolith and Microservice architecture lies in how the application is structured and managed:
+    Monolith Architecture is a single unified codebase where all components (UI, logic, database access) are tightly integrated 
+    and deployed together. It’s easier to develop initially but harder to scale, maintain, or update as the codebase grows.
+
+    Microservice Architecture breaks the application into multiple independent services, each responsible for a specific business 
+    function. These services are loosely coupled, developed and deployed independently, and communicate over APIs. It offers better
+    scalability and team autonomy but adds complexity in communication, deployment, and monitoring.
+
+
+Q) Why do we need a useEffect Hook?
+a) The useEffect hook in React is used to handle side effects in functional components, such as data fetching, subscriptions, 
+timers, or manually updating the DOM. It acts as a replacement for lifecycle methods like componentDidMount, componentDidUpdate, 
+and componentWillUnmount found in class components. By using useEffect, developers can run specific logic after a component renders
+or when certain dependencies change, ensuring clean and predictable behavior. It also supports cleanup functions, making it ideal
+for managing tasks like removing event listeners or clearing intervals when a component unmounts.
+
+Q) What is Optional Chaining?
+A) Optional chaining is a JavaScript feature that helps prevent runtime errors when accessing nested properties of an object that
+ might be null or undefined. Using the ?. operator, it short-circuits and returns undefined instead of throwing an error if any 
+ part of the chain is missing. This makes the code cleaner and safer, especially when working with data from APIs or optional 
+ fields. For example, user?.address?.city will return undefined if user or address is undefined, rather than crashing the program.
+
+ Q) What is Shimmer UI?
+ A) Shimmer UI is a modern loading indicator pattern that shows a lightweight skeleton layout with animated placeholders 
+ resembling the structure of the final content. Instead of displaying a spinner or blank screen, Shimmer UI creates a visual 
+ impression of loading by using subtle animations (like a glowing gradient) across gray blocks that mimic text, images, or cards.
+  This improves perceived performance and keeps users engaged by giving them a sense of what content is coming, commonly used in 
+  applications like Facebook or Swiggy.
+
+Q) What is the difference between JS expression and JS statement
+A) The key difference between a JavaScript expression and a JavaScript statement lies in what they produce. An expression is any 
+valid unit of code that evaluates to a value, such as 5 + 2, "Hello", or a > b. It can be used wherever a value is expected. 
+In contrast, a statement performs an action and does not return a value directly—examples include if, for, while, or let x = 5.
+While expressions are like ingredients, statements are the full instructions; for instance, let sum = 5 + 2; is a statement 
+that contains an expression (5 + 2).
+
+Q) What is Conditional Rendering, explain with a code example
+A) Conditional Rendering in React refers to the technique of displaying different UI elements based on certain conditions, 
+such as state or props. Instead of rendering everything at once, React allows components to render specific elements or blocks 
+only when a condition is true. This helps create dynamic and responsive user interfaces. It’s commonly done using JavaScript
+operators like if, ternary (?:), or logical &&.
+
+Q) What is CORS?
+A) CORS (Cross-Origin Resource Sharing) is a security feature implemented by browsers that controls how resources can be 
+requested from a different domain than the one serving the web page. By default, web browsers block cross-origin HTTP requests 
+for security reasons. CORS allows servers to specify which domains are permitted to access their resources using special HTTP 
+headers like Access-Control-Allow-Origin. This ensures controlled access to resources and prevents malicious websites from 
+making unauthorized requests to other servers on behalf of users.
+
+Q) What is async and await?
+A) async and await are modern JavaScript keywords used to handle asynchronous operations in a more readable and structured way 
+compared to traditional promise chains. When a function is declared with async, it automatically returns a promise. Inside that
+function, await can be used to pause the execution until a promise is resolved, allowing the code to look and behave like 
+synchronous code. This improves readability and helps manage complex asynchronous flows like API calls, timeouts, or file 
+operations with cleaner syntax and error handling using try...catch.
+
+Q) What is the use of `const json = await data.json();` in getRestaurants()
+A) The line const json = await data.json(); is used to convert the raw response from a fetch API call into a usable JavaScript 
+object. When we call fetch(), it returns a Response object containing the data in a readable stream. To access the actual content,
+especially if it’s in JSON format, we call .json() on the response, which itself returns a promise. By using await, we pause the
+function execution until the JSON parsing is complete. This step is essential in getRestaurants() to extract and work with the 
+restaurant data returned from the API.
