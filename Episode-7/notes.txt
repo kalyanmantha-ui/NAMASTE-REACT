@@ -1,0 +1,185 @@
+Q) What are various ways to add images into our App? Explain with code examples
+
+A)
+        1. Import Local Image
+        - Store image inside /src/assets/
+        - Import using ES6 import syntax
+        Example:
+        import logo from './assets/logo.png'
+        <img src={logo} alt="Logo" />
+
+        2. Public Folder Image
+        - Place image in /public/
+        - Access using relative path from root
+        Example:
+        <img src="/banner.jpg" alt="Banner" />
+
+        3. External Image URL
+        - Use images from a CDN or website
+        Example:
+        <img src="https://example.com/image.jpg" alt="CDN" />
+
+        4. Base64 Encoded Image
+        - Embed small image directly as string (not good for large images)
+        Example:
+        <img src="data:image/png;base64,..." alt="Base64" />
+
+        5. SVG as React Component
+        - Import .svg using SVGR (CRA supports this)
+        Example:
+        import { ReactComponent as LogoIcon } from './logo.svg'
+        <LogoIcon />
+
+        6. CSS Background Image
+        - Use in style or CSS file
+        Example (inline):
+        <div style={{ backgroundImage: 'url("/bg.jpg")' }} />
+        Example (CSS):
+        .bg { background-image: url('/bg.jpg'); }
+
+        7. Dynamic Image URL (API)
+        - Fetch image URL from backend and use in JSX
+        Example:
+        const [url, setUrl] = useState('');
+        useEffect(() => {
+            fetch('/api/user').then(res => res.json()).then(data => setUrl(data.image));
+        }, []);
+        <img src={url} alt="Profile" />
+
+        Summary Table:
+        | Method               | Use Case                          |
+        |----------------------|------------------------------------|
+        | Local Import         | Static bundled images              |
+        | Public Folder        | Static assets (not bundled)        |
+        | External URL         | Images from backend/CDN            |
+        | Base64               | Small icons inline                 |
+        | SVG Component        | Scalable, customizable icons       |
+        | CSS Background       | Decorative layout backgrounds      |
+        | Dynamic API URL      | User profile or runtime images     |
+
+
+Q) What would happen if we do console.log(useState())?
+
+A)
+
+        1. If called OUTSIDE a component:
+        -  React will throw an error
+        -  Error: "Invalid hook call. Hooks can only be called inside of the body of a function component."
+
+        Reason:
+        - Hooks like useState() must only be used inside functional components or custom hooks
+
+        2. If called INSIDE a component:
+        -  It will log an array: [value, setValue function]
+        - Example:
+            const [count, setCount] = useState(0);
+            console.log(useState()); // Logs: [0, ƒ]
+
+        3. Summary:
+        | Scenario                  | Result                                 |
+        |---------------------------|----------------------------------------|
+        | Outside a component       |  Error: Invalid hook call             |
+        | Inside a component        |  Logs: [stateValue, setStateFunction] |
+
+
+Q) How will useEffect behave if we don't add a dependency array?
+
+A)
+
+        1. No dependency array → useEffect runs on:
+        - Every render (initial + every update)
+
+        2. Behavior:
+        -  Runs after the component mounts (initial render)
+        -  Runs again after every state or prop change (on re-render)
+
+        3. Example:
+        useEffect(() => {
+            console.log("Effect triggered");
+        });
+
+        // "Effect triggered" will log every time the component re-renders
+
+        4. Comparison:
+
+        | Dependency Array         | Behavior                                |
+        |--------------------------|------------------------------------------|
+        | No array                 | Runs after every render                  |
+        | [] (empty array)         | Runs only once (after initial mount)     |
+        | [var1, var2]             | Runs when any listed variable changes    |
+
+        5. Summary:
+        - ❗ Avoid missing the dependency array unless you intentionally want the effect to run on every render (rare case)
+
+
+Q) What is SPA?
+
+A)
+
+SPA = Single Page Application
+
+        1. Definition:
+        - A web app that loads a single HTML page and dynamically updates content using JavaScript without reloading the entire page.
+
+        2. Key Characteristics:
+        -  Only one HTML file is served (usually index.html)
+        -  Routing is handled on the client side using libraries like React Router
+        -  Fast navigation (no full page reloads)
+        -  Uses JavaScript to update DOM and fetch data
+
+        3. Examples:
+        - Gmail, Google Docs, Facebook, Twitter
+
+        4. Advantages:
+        -  Better performance after initial load
+        -  Smooth user experience (no flickering or full refresh)
+        -  Efficient use of API calls and dynamic rendering
+
+        5. Disadvantages:
+        -  Initial load can be heavier
+        -  SEO can be challenging (though solutions exist)
+        -  Needs client-side JS to work properly
+
+        6. Frameworks that support SPA:
+        - React, Angular, Vue, Svelte, Next.js (can do SPA + SSR)
+
+        7. Summary:
+        SPA is a modern approach to building fast, seamless web apps that update content without refreshing the entire page.
+
+
+Q) What is the difference between Client Side Routing and Server Side Routing?
+
+A)
+        1. Client Side Routing (CSR):
+        - Routing handled in the browser using JavaScript
+        - No full page reload
+        - Only part of the page is updated dynamically
+        - Uses History API (e.g., React Router)
+        - Common in Single Page Applications (SPA)
+
+        Example:
+        - Clicking a link → React Router updates URL → loads component without server call
+
+        2. Server Side Routing (SSR):
+        - Routing handled by the server
+        - Each URL change = full page reload
+        - Server returns a new HTML page for every route
+        - Common in traditional websites (e.g., PHP, Express apps)
+
+        Example:
+        - Clicking a link → browser sends HTTP request → server responds with a new HTML file
+
+        3. Comparison Table:
+
+        | Feature               | Client Side Routing            | Server Side Routing          |
+        |-----------------------|-------------------------------|-------------------------------|
+        | Handling              | Handled by browser (JS)        | Handled by server           |
+        | Page reload           |    No                          |  Yes                        |
+        | Performance (after load)|  Fast (SPA-like)             | Slower (reloads full page)  |
+        | SEO                   |  Complex                       | Better by default           |
+        | Initial Load Time     |    Slightly longer             | Faster                      |
+        | Tools/Libraries       | React Router, Vue Router       | Express, Next.js (SSR mode) |
+
+        4. Summary:
+        - Client Side Routing is used in SPAs for dynamic, fast UX without reloads.
+        - Server Side Routing is traditional and good for SEO and initial load performance.

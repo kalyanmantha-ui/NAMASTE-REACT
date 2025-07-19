@@ -2,9 +2,11 @@ import {restaurants} from "../utils/data";
 import {Card} from "./card";
 import { useState,useEffect } from "react";
 import { ShimmerUI } from "./ShimmerUi";
+import {useNavigate} from "react-router-dom";
 
 
 export const Body = () => {
+    const navigate = useNavigate();
     const [data , setdata] = useState([]);
     const [search , setsearch] = useState("");
     const [allRestaurants] = useState(data);
@@ -20,12 +22,8 @@ export const Body = () => {
         const fullURL = newOffSet ? `${apidata1}&nextOffset=${newOffSet}` : apidata1;
         const apidata = await fetch(fullURL);
         const json = await apidata.json();
-        console.log("Received nextOffset:", json.data?.pageOffset?.nextOffset);
-console.log("Previous offset in state:", newOffSet);
-
         setdata(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setnewOffSet(json?.data?.pageOffset?.nextOffset);
-        console.log(json?.data?.pageOffset?.nextOffset);
         console.log(json);
         setisLoading(false);
         const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -57,7 +55,11 @@ console.log("Previous offset in state:", newOffSet);
                 }>Search</button>
                 <div className="cardContainer">
                 {data.map((val) => {
-                   return <Card key={val.info.name} {...val.info}/>
+                    const id = val.info.id;
+                    {console.log(id)}
+                   return <div key={id} onClick = {() => {
+                    navigate(`RestuarentMenu/${id}`)
+                   }}> <Card  {...val.info}/></div>
                 })}
                 </div>
                 

@@ -1,0 +1,23 @@
+{
+  "name": "practice-assignment",
+  "version": "1.0.0",
+  "description": "practice assignment",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "kalyan",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^6.15.0",
+    "react-router-dom": "^6.15.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4",
+    "serve": "^14.2.4"
+  }
+}
