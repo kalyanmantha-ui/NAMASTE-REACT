@@ -1,0 +1,52 @@
+Q) When and why do we need lazy()?
+A) We use lazy() in React when we want to optimize the performance of our application by code-splitting components. Code-splitting 
+means breaking our JavaScript bundle into smaller chunks so that the initial load time is reduced. The lazy() function is used 
+specifically for dynamically importing components only when they are needed, rather than loading them all upfront. For example, 
+in large applications with many routes or rarely-used components (like a settings or admin panel), we can wrap those components 
+with React.lazy() and load them only when the user navigates to that route. This helps reduce the size of the main bundle and 
+speeds up the first meaningful paint. It's commonly used with Suspense, which allows us to show a fallback UI (like a loader) 
+while the lazy component is being loaded. Overall, lazy() is essential for improving performance and user experience in scalable 
+React applications.
+
+Q) What is suspense?
+A) Suspense in React is a built-in component that is used to handle the loading state of components that are being loaded 
+asynchronously, especially when using React.lazy() for code-splitting. It allows you to define a fallback UI (such as a loading 
+spinner or a message) that will be displayed while the lazy-loaded component is still being fetched. This provides a better 
+user experience by preventing a blank screen during load time. For example, when you wrap a part of your component tree with 
+<Suspense fallback={<Loader />}>, React will render the loader until the child component is ready. Suspense plays a crucial role
+ in managing asynchronous rendering and is also foundational for features like concurrent rendering and data fetching with 
+ frameworks like React Query and Relay. In interviews, it's important to highlight that Suspense improves perceived performance 
+ and user experience during dynamic imports or deferred rendering.
+
+Q) Why we got this error : A component suspended while responding to
+synchronous input. This will cause the UI to be replaced with a loading indicator.
+To fix, updates that suspend should be wrapped with startTransition? How does
+suspense fix this error?
+A) ChatGPT said:
+When using React.lazy() to implement lazy loading, React may throw a warning that says: “A component suspended while responding to 
+synchronous input...”. This happens because React tries to render the lazy-loaded component immediately after a user interaction 
+(like a click), but since the component isn’t loaded yet, React suspends and tries to show a fallback. Without proper handling, 
+this leads to an abrupt UI shift or blank screen, which negatively impacts user experience. To resolve this, we need to wrap the 
+lazy-loaded component with Suspense and provide a fallback UI, such as a loader or placeholder. Suspense tells React how to handle 
+components that are still loading and ensures a smooth transition by showing the fallback until the component is ready. This 
+pattern is essential when using lazy loading to avoid UI flickers and maintain a polished, responsive experience.
+
+Q) Advantages and disadvantages of using this code splitting pattern?
+A) Using code splitting with React.lazy() and Suspense offers several advantages, especially in large applications. The primary 
+benefit is improved initial load performance, as only the necessary code for the current view is loaded, while the rest is deferred
+ until needed. This reduces bundle size and improves time-to-interactive, leading to a faster and smoother user experience. 
+ It also promotes better resource usage and enables route-based or component-level optimization. However, this pattern also has 
+ some disadvantages. It introduces complexity in handling loading states, as you must manage fallback UIs for each suspended 
+ component. Additionally, if not implemented carefully, it can lead to poor user experience due to loading delays during 
+ navigation. Lazy loading also depends on network speed and caching, which may cause visible delays on slower connections. 
+ Overall, while code splitting with lazy and Suspense is powerful, it must be used thoughtfully with appropriate fallbacks and 
+ user experience considerations.
+
+ Q) When do we and why do we need suspense?
+ A) We use Suspense in React when we are dealing with components or data that may not be immediately available, such as 
+ lazy-loaded components using React.lazy() or asynchronous data fetching in concurrent React. The primary reason for using 
+ Suspense is to provide a fallback UI (like a loader or placeholder) while waiting for a component or resource to load. This 
+ prevents the application from rendering blank screens or crashing due to missing content. Suspense enhances the user experience 
+ by allowing React to gracefully pause rendering and display an interim UI until the requested component is ready. It’s especially 
+ useful in modern React apps where code splitting, lazy loading, or concurrent rendering is used, helping developers build 
+ smoother, more resp
